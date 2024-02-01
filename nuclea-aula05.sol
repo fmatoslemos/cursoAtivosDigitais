@@ -3,6 +3,9 @@ SPDX-License-Identifier: CC-BY-4.0
 (c) Desenvolvido por Jeff Prestes
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 */
+
+//Endereço do contrato: 0x6a1d9BE85C28328d35aDBDce19158b2dC7bb0F69
+
 pragma solidity 0.8.19;
 
 contract Aluguel {
