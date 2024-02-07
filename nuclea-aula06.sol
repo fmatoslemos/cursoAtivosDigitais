@@ -2,12 +2,12 @@ pragma solidity 0.8.19;
 
 // @author Felipe Lemos
 // @title Execicio da aula 06
-// Endereco contrato: 0x2d18868278704eecbbeb66f659c8ab9dd4c466f7
+// Endereco contrato: 0x61fd3e9d6d36bf67549d3b5a679e1929b48c476e
 contract ContratoAula06 {
 
     mapping(address=>uint256)  contasSaldos;
 
-    event ColocaramNaConta(address paraQuem, uint256 quanto);
+    event ColocaramNaConta(address quem, uint256 quanto);
 
     // @notice Coloca saldo na conta
     // @dev mapeia o valor informado com a conta a ser colocado saldo. Se a conta for 0x00aea14aFA59aeF0559f596FBC996AB961ECd685 gera um evento
@@ -15,7 +15,7 @@ contract ContratoAula06 {
         require(valor > 0, "O valor tem ser positivo!");
         contasSaldos[conta] = valor;
         if (conta == address(0x00aea14aFA59aeF0559f596FBC996AB961ECd685)) {
-            emit ColocaramNaConta(msg.sender, valor);
+            emit ColocaramNaConta(conta, valor);
         }
     }
 
