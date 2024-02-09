@@ -5,7 +5,7 @@ import "./owner.sol";
 import "./titulo.sol";
 import "./tokenrc20.sol";
 
-// Endereço do contrato debenture RC20 : 0x9913ed14d0c12bf784001f2a6f0966172c6b5641
+// Endereço do contrato debenture RC20 : 0xf7a1f31c356948663fd8733ab104d038f7f240e1
 
 
 /**
