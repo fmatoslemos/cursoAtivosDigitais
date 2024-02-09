@@ -5,7 +5,8 @@ import "./owner.sol";
 import "./titulo.sol";
 import "./tokenrc20.sol";
 
-// Endereço do contrato debenture RC20 : 0x4ff9d29c5c3f2e973d8948f27bd51bb2593d9ac0
+// Endereço do contrato debenture RC20 : 0x9913ed14d0c12bf784001f2a6f0966172c6b5641
+
 
 /**
  * @title Debenture
@@ -24,19 +25,22 @@ import "./tokenrc20.sol";
     string private myName;
     string private mySymbol;
 
+    mapping (address=>uint256) balances;
+    mapping (address=>mapping (address=>uint256)) ownerAllowances;
+
 
     constructor(string memory emissor_, string memory myName_, string memory mySymbol_) {
         _emissor = emissor_;
         _dataEmissao = block.timestamp;
-        _valor = 100000000;
+        _valor = 1000000000;
         _decimais = 2;
         _prazoPagamento = _dataEmissao + 90 days;
         rating = "BBB-";
         _fracoes = 1000;
         myName = myName_;
         mySymbol = mySymbol_;
-        emit NovoPrazoPagamento(_dataEmissao, _prazoPagamento);
-        mint(msg.sender, _valor);
+        mint(msg.sender, (1000000000 * (10 ** _decimais)));
+        emit NovoPrazoPagamento(_dataEmissao, _prazoPagamento);        
     }
 
     /**
@@ -84,8 +88,7 @@ import "./tokenrc20.sol";
         return _fracoes;
     }
 
-    mapping (address=>uint256) balances;
-    mapping (address=>mapping (address=>uint256)) ownerAllowances;
+   
 
     modifier hasEnoughBalance(address owner, uint amount) {
         uint balance;
